@@ -2,23 +2,35 @@
 </ion-header>
 
 <ion-content class="background-image" no-scroll padding>
-  <div class="forma"  fxLayout="column" fxLayoutAlign="space-around center">
+
+  <div class="wrap"  fxLayout="column" fxLayoutAlign="center center">
+  <img class="logo" src="../../assets/img/logo/logo-ljubicasti-01.png"/>
+  <ion-card class="login-kartica">
+  <ion-card-content class="wrapper">
+  <div class="forma">
   <form>
     <ion-item lines="full">
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="text" required></ion-input>
+      <ion-label class="label" position="floating">Username</ion-label>
+      <ion-input class="input-text" type="text" required></ion-input>
     </ion-item>
 
     <ion-item lines="full">
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" required></ion-input>
+      <ion-label class="label" position="floating">Password</ion-label>
+      <ion-input class="input-text" type="password" required></ion-input>
     </ion-item>
 
     <ion-row>
       <ion-col>
-        <ion-button type="submit" color="danger" expand="block">Log in</ion-button>
+        <ion-button class="login-button" color="ion-color-favorite" expand="block">Log in</ion-button>
       </ion-col>
     </ion-row>
   </form>
   </div>
+</ion-card-content>
+</ion-card>
+<div fxLayout="column" fxLayoutAlign="end center" >
+  <ion-label class="sign" position="end">By Nevena, Nikolina and Stefan</ion-label>
+</div>
+</div>
+
 </ion-content>
