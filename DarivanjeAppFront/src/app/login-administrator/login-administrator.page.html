@@ -10,18 +10,18 @@
   <div class="forma">
   <form>
     <ion-item lines="full">
-      <ion-label class="label" position="floating">Username</ion-label>
-      <ion-input class="input-text" type="text" required></ion-input>
+      <ion-label class="label" position="floating" >Username</ion-label>
+      <ion-input class="input-text" type="text" [(ngModel)]="this.username" name ="username" required></ion-input>
     </ion-item>
 
     <ion-item lines="full">
-      <ion-label class="label" position="floating">Password</ion-label>
-      <ion-input class="input-text" type="password" required></ion-input>
+      <ion-label class="label" position="floating" >Password</ion-label>
+      <ion-input class="input-text" type="password"  [(ngModel)]="this.password" name="password" required></ion-input>
     </ion-item>
 
     <ion-row>
       <ion-col>
-        <ion-button class="login-button" color="ion-color-favorite" expand="block">Log in</ion-button>
+        <ion-button class="login-button" color="ion-color-favorite" expand="block" (click)="login()">Log in</ion-button>
       </ion-col>
     </ion-row>
   </form>
