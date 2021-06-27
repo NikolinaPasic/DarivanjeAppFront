@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,8 @@ export class LoginAdminService {
   currentUser: any=null;
   error: string=null;
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) { }
 
   public login(username: string,password: string): any {
@@ -19,7 +21,7 @@ export class LoginAdminService {
        (response)=>{
          console.log(response);
          localStorage.setItem('currentUser','true');
-         //this.router.navigateByUrl('link neki hahah');
+         this.router.navigateByUrl('/list-of-giveaways');
          this.currentUser=response;
          localStorage.setItem('username', this.currentUser.username);
          localStorage.setItem('adminid',this.currentUser.adminid);
