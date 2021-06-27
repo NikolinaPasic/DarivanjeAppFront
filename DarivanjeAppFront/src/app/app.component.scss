@@ -1,0 +1,23 @@
+.background-image{
+    --background: url("../../assets/img/backgrounds/DarivanjeApp-01.jpg") 0 0/100% 100% no-repeat;
+}
+
+.customToolbar{
+    --background: transparent no-repeat fixed center;
+    position: absolute;
+    top: 0;
+}
+
+.list{
+    background: transparent !important;
+    transition: 0 !important;
+    margin-top: 50px;
+}
+
+.btnOdobri{
+    color: #5851D8;
+}
+
+.btnOdbaci{
+    color: #FD1D1D;
+}

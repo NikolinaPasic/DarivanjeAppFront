@@ -14,7 +14,11 @@ const routes: Routes = [
   {
     path: 'login-administrator',
     loadChildren: () => import('./login-administrator/login-administrator.module').then( m => m.LoginAdministratorPageModule)
+  },  {
+    path: 'list-of-giveaways',
+    loadChildren: () => import('./list-of-giveaways/list-of-giveaways.module').then( m => m.ListOfGiveawaysPageModule)
   },
+
 ];
 
 @NgModule({
