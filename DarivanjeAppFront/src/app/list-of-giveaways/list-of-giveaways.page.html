@@ -7,20 +7,29 @@
 <ion-content class="background-image" >
 
   <ion-list class="list">
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Naziv darivanja 1</ion-card-title>
-        <ion-label>nevenabg5</ion-label>
-      </ion-card-header>
-
-      <ion-card-content>
-        Keep close to Nature's heart... and break clear away, once in awhile,
-        and climb a mountain or spend a week in the woods. Wash your spirit clean.
-        <p></p>
-        <ion-button color="ion-color-favorite" class="btnOdobri">Odobri</ion-button>
-        <ion-button color="ion-color-favorite" class="btnOdbaci" >Odbaci</ion-button>
-      </ion-card-content>
-    </ion-card>
+      <ion-card *ngFor="let d of darivanja">
+        <ion-card-header>
+          <ion-card-title>{{d.naziv}}</ion-card-title>
+          <ion-label>{{d.kreiranOd.username}}</ion-label>
+        </ion-card-header>{{d.opis}}<ion-card-content>
+          <p></p>
+          <ion-button color="ion-color-favorite" class="btnOdobri">Odobri</ion-button>
+          <ion-button color="ion-color-favorite" class="btnOdbaci" >Odbaci</ion-button>
+        </ion-card-content>
+      </ion-card>
 </ion-list>
+<!--
+  <ion-card *ngFor="let d of this.darivanja">
+    <ion-card-header>
+      <ion-card-title>{{d.naziv}}</ion-card-title>
+      <ion-label>{{d.kreiranOd.username}}</ion-label>
+    </ion-card-header>{{d.opis}}<ion-card-content>
+      <p></p>
+      <ion-button color="ion-color-favorite" class="btnOdobri">Odobri</ion-button>
+      <ion-button color="ion-color-favorite" class="btnOdbaci" >Odbaci</ion-button>
+    </ion-card-content>
+  </ion-card> -->
+
+
 
 </ion-content>

@@ -11,6 +11,6 @@ export class DarivanjeService {
   constructor(private http: HttpClient) { }
 
   public VratiNaCekanju(): Observable<any>{
-    return this.http.get<any>('http://localhost/giveaways');
+    return this.http.get<any>('https://localhost:44328/giveaways');
   }
 }
