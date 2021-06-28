@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/member-ordering */
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Darivanje } from '../shared/models/darivanje.model';
 import { DarivanjeService } from '../shared/services/darivanje.service';
 
@@ -12,7 +13,7 @@ import { DarivanjeService } from '../shared/services/darivanje.service';
   styleUrls: ['./list-of-giveaways.page.scss'],
 })
 export class ListOfGiveawaysPage implements OnInit {
-  public darivanja: Array<any> = [];
+   darivanja: Array<any>  = [];
 
   constructor(private darivanjeService: DarivanjeService, private router: Router, activeRoute: ActivatedRoute) {
     this.darivanjeService.VratiNaCekanju()
@@ -28,6 +29,12 @@ export class ListOfGiveawaysPage implements OnInit {
    Odobri(d: Darivanje): void {
      d.AdminId = Number(localStorage.getItem('adminid'));
     this.darivanjeService.OdobriDarivanje(d);
+    this.router.navigate([this.router]);
+  }
+
+  Odbaci(d: Darivanje): void{
+    d.AdminId = Number(localStorage.getItem('adminid'));
+    this.darivanjeService.OdbaciDarivanje(d);
     this.router.navigate([this.router]);
   }
 

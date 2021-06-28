@@ -26,4 +26,16 @@ export class DarivanjeService {
       }
     );
   }
+
+  OdbaciDarivanje(darivanje: Darivanje) {
+    return this.http.patch<any>('https://localhost:44328/unapprove-giveaway', darivanje)
+    .subscribe(
+      (response) => {
+        console.log(response.toString());
+      },
+      (error) => {
+        console.log(error.toString());
+      }
+    );
+  }
 }
