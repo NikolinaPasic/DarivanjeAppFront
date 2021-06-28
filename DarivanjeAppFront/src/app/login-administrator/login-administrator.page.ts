@@ -9,13 +9,16 @@ import { LoginAdminService } from '../shared/services/login-admin.service';
 export class LoginAdministratorPage implements OnInit {
   public username: string;
   public password: string;
-  constructor(private loginAdminService: LoginAdminService) {}
+  constructor(private loginAdminService: LoginAdminService) {
+  }
 
   ngOnInit() {
   }
 
   public login(): void{
     this.loginAdminService.login(this.username, this.password);
+    this.username = '';
+    this.password = '';
   }
 
 }

@@ -25,7 +25,7 @@ export class ListOfGiveawaysPage implements OnInit {
   ngOnInit() {
   }
 
-  public Odobri(d: Darivanje): void {
+   Odobri(d: Darivanje): void {
     this.darivanjeService.OdobriDarivanje(d);
     this.router.navigate([this.router]);
   }
@@ -35,6 +35,11 @@ export class ListOfGiveawaysPage implements OnInit {
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
     this.router.navigate([currentUrl]);
     });
+  }
+
+  Logout(): void {
+    localStorage.setItem('currentUser', 'false');
+    this.router.navigate(['/login-administrator']);
   }
 
 }
