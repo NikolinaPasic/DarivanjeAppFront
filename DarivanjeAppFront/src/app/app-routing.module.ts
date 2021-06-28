@@ -22,6 +22,10 @@ const routes: Routes = [
     path: 'influenser-pocetna',
     loadChildren: () => import('./influenser-pocetna/influenser-pocetna.module').then( m => m.InfluenserPocetnaPageModule)
   },
+  {
+    path: 'ucesnik-pocetna',
+    loadChildren: () => import('./ucesnik-pocetna/ucesnik-pocetna.module').then( m => m.UcesnikPocetnaPageModule)
+  },
 
 ];
 
