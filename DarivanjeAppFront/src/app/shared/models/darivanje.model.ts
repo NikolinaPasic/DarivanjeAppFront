@@ -5,4 +5,5 @@ export class Darivanje{
   Opis: string;
   DatumOtvaranja: Date;
   DatumZatvaranja: Date;
+  AdminId: number;
 }

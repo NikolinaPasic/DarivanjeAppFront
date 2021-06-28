@@ -27,7 +27,6 @@ export class ListOfGiveawaysPage implements OnInit {
 
   public Odobri(d: Darivanje): void {
     this.darivanjeService.OdobriDarivanje(d);
-
     this.router.navigate([this.router]);
   }
 
