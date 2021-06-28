@@ -26,6 +26,7 @@ export class ListOfGiveawaysPage implements OnInit {
   }
 
    Odobri(d: Darivanje): void {
+     d.AdminId = Number(localStorage.getItem('adminid'));
     this.darivanjeService.OdobriDarivanje(d);
     this.router.navigate([this.router]);
   }
