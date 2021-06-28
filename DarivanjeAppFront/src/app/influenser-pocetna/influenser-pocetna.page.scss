@@ -1,0 +1,18 @@
+.background-image{
+  --background: url("../../assets/img/backgrounds/influenserprofil-01.png") 0 0/100% 100% no-repeat;
+}
+.profile-photo {
+  width: 100%;
+}
+.wrap{
+  height:100%
+}
+.column{
+  height:100%
+}
+.photo{
+  width: 50%;
+  height: 50%;
+  border-radius: 60% !important;
+  overflow: hidden;
+}

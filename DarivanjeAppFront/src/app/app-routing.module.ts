@@ -18,6 +18,10 @@ const routes: Routes = [
     path: 'list-of-giveaways',
     loadChildren: () => import('./list-of-giveaways/list-of-giveaways.module').then( m => m.ListOfGiveawaysPageModule)
   },
+  {
+    path: 'influenser-pocetna',
+    loadChildren: () => import('./influenser-pocetna/influenser-pocetna.module').then( m => m.InfluenserPocetnaPageModule)
+  },
 
 ];
 
