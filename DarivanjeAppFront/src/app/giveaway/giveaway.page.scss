@@ -1,0 +1,80 @@
+.background-image {
+  --background: url("../../assets/img/backgrounds/DarivanjeApp-01.jpg") 0 0/100%
+    100% no-repeat;
+}
+.profile-photo {
+  width: 100%;
+}
+.wrap {
+  margin-top: 15px;
+  height: 100%;
+  width: 60%;
+}
+.column {
+  height: 100%;
+}
+.photo {
+  width: 30%;
+  height: 30%;
+  border-radius: 60% !important;
+  overflow: hidden;
+}
+.username {
+  margin-top: 2%;
+  font-size: 20px;
+  color: #be295b;
+}
+.info {
+  margin-top: 5%;
+  font-size: 20px;
+  width: 15%;
+}
+.posts {
+  width: 30%;
+}
+.numbers {
+  color: black;
+  text-align: center;
+}
+.textinfo {
+  color: #be295b;
+  font-size: 15px;
+  text-align: center;
+}
+.content {
+  background-color: rgba(255, 255, 255, 0.671);
+  width: 80%;
+  height: 70%;
+  border-color: white;
+  border-radius: 20px;
+  margin: 10% auto auto auto;
+}
+.score {
+  width: 20%;
+  font-size: 20px;
+}
+.title {
+  margin: 10% auto auto auto;
+  color: #be295b;
+  font-size: 20px;
+}
+.photon {
+  width: 40%;
+  height: auto;
+  border-radius: 60% !important;
+  overflow: hidden;
+}
+.name {
+  margin: 10% auto auto auto;
+  color: #be295b;
+  font-size: 20px;
+}
+.lista {
+  margin: 10% 2% auto 2%;
+}
+.header {
+  margin-left: 5%;
+}
+.enter-button {
+  --background-activated: #be295b !important;
+}

@@ -26,6 +26,10 @@ const routes: Routes = [
     path: 'ucesnik-pocetna',
     loadChildren: () => import('./ucesnik-pocetna/ucesnik-pocetna.module').then( m => m.UcesnikPocetnaPageModule)
   },
+  {
+    path: 'giveaway',
+    loadChildren: () => import('./giveaway/giveaway.module').then( m => m.GiveawayPageModule)
+  },
 
 ];
 
