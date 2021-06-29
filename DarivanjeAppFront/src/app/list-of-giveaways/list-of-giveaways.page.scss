@@ -3,9 +3,18 @@
 }
 
 .customToolbar{
-  --background: transparent no-repeat fixed center;
+  --background: rgba(255, 255, 255,0);
   position: absolute;
   top: 0;
+  border: none;
+}
+
+.ion-text-center{
+  color: white;
+}
+
+.header-ios ion-toolbar:last-of-type {
+  --border-width: 0 0 0px;
 }
 
 .list{
@@ -22,3 +31,6 @@
   color: #FD1D1D;
 }
 
+.no-data-card{
+  margin-top: 20%;
+}
