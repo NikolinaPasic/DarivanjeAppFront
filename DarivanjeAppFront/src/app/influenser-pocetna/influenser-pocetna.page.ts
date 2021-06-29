@@ -11,6 +11,12 @@ import { AlertController } from '@ionic/angular';
 export class InfluenserPocetnaPage implements OnInit {
 
   url = 'https://www.instagram.com/imfashionbabe/';
+  slideOpts = {
+    initialSlide: 0,
+    speed: 400,
+    centeredSlides : true
+  };
+
   constructor(private alertCtrl: AlertController) { }
 
   ngOnInit() {
