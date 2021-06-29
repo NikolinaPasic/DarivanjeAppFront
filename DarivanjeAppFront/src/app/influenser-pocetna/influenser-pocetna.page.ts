@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/quotes */
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-influenser-pocetna',
@@ -8,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfluenserPocetnaPage implements OnInit {
 
-  constructor() { }
+  url = 'https://www.instagram.com/imfashionbabe/';
+  constructor(private alertCtrl: AlertController) { }
 
   ngOnInit() {
   }
 
+  async GetURL() {
+    const alert = this.alertCtrl.create({
+      header: 'URL za deljenje',
+      message: this.url,
+      buttons: ['Copy']
+    });
+    (await alert).present();
+  }
 }
