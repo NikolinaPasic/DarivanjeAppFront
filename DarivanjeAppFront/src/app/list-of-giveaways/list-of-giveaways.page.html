@@ -1,12 +1,12 @@
 <ion-header header-scroll-up>
   <ion-toolbar class="customToolbar">
-    <ion-title class="ion-text-center">Lista darivanja na čekanju</ion-title>
+    <ion-title class="ion-text-center">Na čekanju</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="background-image" >
+<ion-content class="background-image"  fxLayout="column" fxLayoutAlign="center center">
 
-  <ion-list class="list">
+  <ion-list class="list" *ngIf="darivanja.length > 0">
       <ion-card *ngFor="let d of darivanja">
         <ion-card-header>
           <ion-card-title>{{ d.naziv }}</ion-card-title>
@@ -21,6 +21,11 @@
       </ion-card>
 
 </ion-list>
+  <ion-card *ngIf="darivanja.length <=  0" class = "no-data-card">
+    <ion-card-content>
+      <ion-label>Nemate darivanja na čekanju.</ion-label>
+    </ion-card-content>
+  </ion-card>
 <ion-fab vertical="bottom" horizontal="end" slot="fixed">
   <ion-fab-button color = "tertiary" (click) = "Logout()">
     <ion-icon name="arrow-forward-circle"></ion-icon>
