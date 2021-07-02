@@ -4,7 +4,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="background-image"  fxLayout="column" fxLayoutAlign="center center">
+
+<ion-content class="background-image"  fxLayout="column" fxLayoutAlign="center center" id = "main">
 
   <ion-list class="list" *ngIf="darivanja.length > 0">
       <ion-card *ngFor="let d of darivanja">
@@ -32,4 +33,5 @@
   </ion-fab-button>
 </ion-fab>
 
+<ion-router-outlet id = "main"></ion-router-outlet>
 </ion-content>

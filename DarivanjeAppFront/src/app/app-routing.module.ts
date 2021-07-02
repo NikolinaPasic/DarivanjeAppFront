@@ -8,13 +8,14 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '',
+    redirectTo: 'login-administrator',
     pathMatch: 'full'
   },
   {
     path: 'login-administrator',
     loadChildren: () => import('./login-administrator/login-administrator.module').then( m => m.LoginAdministratorPageModule)
-  },  {
+  },
+  {
     path: 'list-of-giveaways',
     loadChildren: () => import('./list-of-giveaways/list-of-giveaways.module').then( m => m.ListOfGiveawaysPageModule)
   },
@@ -30,6 +31,15 @@ const routes: Routes = [
     path: 'giveaway',
     loadChildren: () => import('./giveaway/giveaway.module').then( m => m.GiveawayPageModule)
   },
+  {
+    path: 'admin-dashboard',
+    loadChildren: () => import('./admin-dashboard/admin-dashboard.module').then( m => m.AdminDashboardPageModule)
+  },
+  {
+    path: 'list-of-influencers',
+    loadChildren: () => import('./list-of-influencers/list-of-influencers.module').then( m => m.ListOfInfluencersPageModule)
+  }
+
 
 ];
 
