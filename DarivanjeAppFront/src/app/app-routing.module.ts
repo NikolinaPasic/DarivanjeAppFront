@@ -38,7 +38,12 @@ const routes: Routes = [
   {
     path: 'list-of-influencers',
     loadChildren: () => import('./list-of-influencers/list-of-influencers.module').then( m => m.ListOfInfluencersPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./user-login/user-login.module').then( m => m.UserLoginPageModule)
   }
+
 
 
 ];

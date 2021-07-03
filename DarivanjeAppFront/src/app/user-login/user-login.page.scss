@@ -1,0 +1,49 @@
+.background-image {
+  --background: url("../../assets/img/backgrounds/DarivanjeApp-03.jpg") 0 0/100%
+    100% no-repeat;
+}
+.forma {
+  height: 100%;
+}
+.wrap {
+  height: 100%;
+}
+.column {
+  height: 100%;
+}
+
+.login-kartica {
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 4px;
+}
+
+.logo {
+  height: 60px;
+  width: 60px;
+}
+.login-button {
+  --background: #c13584;
+  color: #c13584;
+}
+.form-input {
+  fill: #c13584 !important;
+}
+.label {
+  color: #f77737;
+}
+.input-text {
+  color: #f56040;
+}
+.item-highlight {
+  color: #f56040 !important;
+}
+.mat-form-field {
+  color: #c13584;
+}
+.sign {
+  font-size: xx-small;
+  color: #833ab4;
+}
+.grupa {
+  width: fit-content;
+  height: fit-content;
+}
