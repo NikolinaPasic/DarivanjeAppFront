@@ -45,9 +45,5 @@ export class ListOfGiveawaysPage implements OnInit {
     });
   }
 
-  Logout(): void {
-    localStorage.setItem('currentUser', 'false');
-    this.router.navigate(['/login-administrator']);
-  }
 
 }

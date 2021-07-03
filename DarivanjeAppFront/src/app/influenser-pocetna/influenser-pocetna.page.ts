@@ -1,9 +1,17 @@
+/* eslint-disable max-len */
+/* eslint-disable @typescript-eslint/dot-notation */
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/quotes */
+import { getLocaleDateTimeFormat } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
+import { stringify } from 'querystring';
 import { CreateGiveawayComponent } from '../create-giveaway/create-giveaway.component';
+import { Darivanje } from '../shared/models/darivanje.model';
+import { DarivanjeService } from '../shared/services/darivanje.service';
+
+
 @Component({
   selector: 'app-influenser-pocetna',
   templateUrl: './influenser-pocetna.page.html',
@@ -14,8 +22,10 @@ export class InfluenserPocetnaPage implements OnInit {
   url = 'https://www.instagram.com/imfashionbabe/';
   naziv= 'Prvo darivanje';
   opis= 'Ovo je opis prvog darivanja. Jedan jako lep opis, koji ce, nadam se, preci u novi red. Hvala.';
-  datumOtvaranja= '2021-01-01';
-  datumZatvaranja= '2021-01-01';
+  aktivnoDarivanje: any;
+  datumOtvaranja: any;
+  datumZatvaranja: any;
+
 
   slideOpts = {
     initialSlide: 0,
@@ -23,7 +33,20 @@ export class InfluenserPocetnaPage implements OnInit {
     centeredSlides : true
   };
 
-  constructor(private alertCtrl: AlertController, private modalCtrl: ModalController) { }
+  constructor(private alertCtrl: AlertController, private modalCtrl: ModalController, private darivanjeService: DarivanjeService) {
+    this.darivanjeService.vratiAktivnoDarivanje(1)
+    .subscribe(
+      (response) =>{
+        this.aktivnoDarivanje = response;
+        console.log(this.aktivnoDarivanje);
+        this.datumOtvaranja = this.aktivnoDarivanje.datumOtvaranja.toString();
+        this.datumZatvaranja = this.aktivnoDarivanje.datumZatvaranja.toString();
+      },
+      (error) => {
+        console.log(error.toString());
+      }
+    );
+  }
 
   ngOnInit() {
   }
@@ -52,7 +75,7 @@ export class InfluenserPocetnaPage implements OnInit {
           name: 'naziv',
           type: 'text',
           id: 'naziv',
-          value: this.naziv,
+          value: this.aktivnoDarivanje.naziv,
           disabled: false
         },
         {
@@ -60,21 +83,21 @@ export class InfluenserPocetnaPage implements OnInit {
           type: 'textarea',
           cssClass:'opis',
           id: 'opis',
-          value:  this.opis,
+          value:  this.aktivnoDarivanje.opis,
           disabled: false
         },
         {
           name: 'datumOtvaranja',
-          type: 'date',
+          type: 'text',
           id: '',
           value: this.datumOtvaranja,
           disabled: false
         },
         {
           name: 'datumZatvaranja',
-          type: 'date',
+          type: 'text',
           id: '',
-          value: this.datumZatvaranja,
+          value:  this.datumZatvaranja,
           disabled: false
         }
       ],
