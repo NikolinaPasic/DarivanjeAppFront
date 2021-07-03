@@ -26,13 +26,13 @@ export class ListOfGiveawaysPage implements OnInit {
   ngOnInit() {
   }
 
-   Odobri(d: Darivanje): void {
-     d.AdminId = Number(localStorage.getItem('adminid'));
+  approveGivaway(d: Darivanje): void {
+    d.AdminId = Number(localStorage.getItem('adminid'));
     this.darivanjeService.OdobriDarivanje(d);
     this.router.navigate([this.router]);
   }
 
-  Odbaci(d: Darivanje): void{
+  notApproveGiveaway(d: Darivanje): void{
     d.AdminId = Number(localStorage.getItem('adminid'));
     this.darivanjeService.OdbaciDarivanje(d);
     this.router.navigate([this.router]);

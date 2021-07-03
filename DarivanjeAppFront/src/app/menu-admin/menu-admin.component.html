@@ -1,0 +1,17 @@
+<ion-menu-toggle>
+  <ion-menu side="start" menuId="first" contentId="main">
+    <ion-header>
+      <ion-toolbar class = "toolbar">
+        <ion-title>Meni</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item routerLink = '/list-of-giveaways'>Darivanja na čekanju</ion-item>
+        <ion-item routerLink = '/list-of-influencers'>Influenseri na čekanju</ion-item>
+        <ion-item (click) = "logOut()">Odjavite se</ion-item>
+
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+</ion-menu-toggle>

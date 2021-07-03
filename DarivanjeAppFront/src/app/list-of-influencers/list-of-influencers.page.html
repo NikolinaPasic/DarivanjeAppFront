@@ -1,9 +1,35 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Influenseri na čekanju</ion-title>
+<ion-header header-scroll-up>
+  <ion-toolbar class="customToolbar">
+    <ion-back-button defaultHref="/admin-dashboard" slot = "start" color="light"></ion-back-button>
+    <ion-title class="ion-text-center">Influenseri na cekanju</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="background-image"  fxLayout="column" fxLayoutAlign="center center" id = "main">
+  <!-- <ion-list class="list" *ngIf="darivanja.length > 0">
+      <ion-card *ngFor="let d of darivanja">
+        <ion-card-header>
+          <ion-card-title>{{ d.naziv }}</ion-card-title>
+          <ion-label>{{d.kreiranOd.username}}</ion-label>
+        </ion-card-header>
+        <ion-card-content>
+          {{ d.opis }}
+          <p></p>
+          <ion-button color="ion-color-favorite" class="btnOdobri" (click) = "Odobri(d)">Odobri</ion-button>
+          <ion-button color="ion-color-favorite" class="btnOdbaci" (click) = "Odbaci(d)">Odbaci</ion-button>
+        </ion-card-content>
+      </ion-card>
+</ion-list>
+  <ion-card *ngIf="darivanja.length <=  0" class = "no-data-card">
+    <ion-card-content>
+      <ion-label>Nemate darivanja na čekanju.</ion-label>
+    </ion-card-content>
+  </ion-card>
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button color = "tertiary" (click) = "Logout()">
+    <ion-icon name="arrow-forward-circle"></ion-icon>
+  </ion-fab-button>
+</ion-fab> -->
 
+<ion-router-outlet id = "main"></ion-router-outlet>
 </ion-content>

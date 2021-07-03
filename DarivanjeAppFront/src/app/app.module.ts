@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { MenuAdminComponent } from './menu-admin/menu-admin.component';
 
 @NgModule({
   declarations: [AppComponent],

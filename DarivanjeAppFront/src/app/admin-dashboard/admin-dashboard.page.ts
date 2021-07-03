@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Administrator } from '../shared/models/administrator.model';
 import { LoginAdminService } from '../shared/services/login-admin.service';
+import { LogoutAdminService } from '../shared/services/logout-admin.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -9,13 +10,21 @@ import { LoginAdminService } from '../shared/services/login-admin.service';
 })
 export class AdminDashboardPage implements OnInit {
 
-  admin: Administrator;
+  public admin: Administrator = new Administrator();
 
-  constructor() {
+
+  constructor(private logOutService: LogoutAdminService, private logInAdmin: LoginAdminService) {
+    this.admin = logInAdmin.getAdminsInfo();
    }
 
   ngOnInit() {
   }
 
+  logOut(){
+    this.admin.Ime = '';
+    this.admin.Prezime = '';
+    this.admin.Username = '';
+    this.logOutService.logout();
+  }
 
 }

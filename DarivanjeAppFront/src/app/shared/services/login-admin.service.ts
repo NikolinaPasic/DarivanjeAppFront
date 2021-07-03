@@ -12,6 +12,7 @@ export class LoginAdminService {
 
   currentUser: any=null;
   error: string=null;
+  admin: Administrator =  new Administrator();
 
   constructor(
     private http: HttpClient,
@@ -24,7 +25,7 @@ export class LoginAdminService {
        (response)=>{
          console.log(response);
          localStorage.setItem('currentUser','true');
-         this.router.navigateByUrl('/list-of-giveaways');
+         this.router.navigateByUrl('/admin-dashboard');
          this.currentUser=response;
          localStorage.setItem('username', this.currentUser.username);
          localStorage.setItem('adminid',this.currentUser.adminId);
@@ -40,9 +41,12 @@ export class LoginAdminService {
 
   }
 
-
-
-
+  public getAdminsInfo(): Administrator {
+    this.admin.Ime = localStorage.getItem('ime');
+    this.admin.Prezime = localStorage.getItem('prezime');
+    this.admin.Username = localStorage.getItem('username');
+    return this.admin;
+  }
 
 }
 

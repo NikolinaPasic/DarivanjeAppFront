@@ -1,12 +1,11 @@
-<ion-header header-scroll-up>
+<ion-header>
   <ion-toolbar class="customToolbar">
+    <ion-back-button defaultHref="/admin-dashboard" slot = "start" color="light"></ion-back-button>
     <ion-title class="ion-text-center">Na čekanju</ion-title>
   </ion-toolbar>
 </ion-header>
 
-
-<ion-content class="background-image"  fxLayout="column" fxLayoutAlign="center center" id = "main">
-
+<ion-content class="background-image"  fxLayout="column" fxLayoutAlign="center center" >
   <ion-list class="list" *ngIf="darivanja.length > 0">
       <ion-card *ngFor="let d of darivanja">
         <ion-card-header>
@@ -14,13 +13,12 @@
           <ion-label>{{d.kreiranOd.username}}</ion-label>
         </ion-card-header>
         <ion-card-content>
-          {{ d.opis }}
+          <ion-label>{{ d.opis }}</ion-label>
           <p></p>
-          <ion-button color="ion-color-favorite" class="btnOdobri" (click) = "Odobri(d)">Odobri</ion-button>
-          <ion-button color="ion-color-favorite" class="btnOdbaci" (click) = "Odbaci(d)">Odbaci</ion-button>
+          <ion-button color="ion-color-favorite" class="btnOdobri" (click) = "approveGivaway(d)">Odobri</ion-button>
+          <ion-button color="ion-color-favorite" class="btnOdbaci" (click) = "notApproveGiveaway(d)">Odbaci</ion-button>
         </ion-card-content>
       </ion-card>
-
 </ion-list>
   <ion-card *ngIf="darivanja.length <=  0" class = "no-data-card">
     <ion-card-content>
