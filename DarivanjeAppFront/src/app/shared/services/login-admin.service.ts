@@ -41,7 +41,6 @@ export class LoginAdminService {
        }
      );
        return this.currentUser;
-
   }
 
   public getAdminsInfo(): Administrator {

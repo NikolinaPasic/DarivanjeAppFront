@@ -26,7 +26,14 @@ export class InfluenserPocetnaPage implements OnInit {
     const alert = this.alertCtrl.create({
       header: 'URL za deljenje',
       message: this.url,
-      buttons: ['Copy']
+      buttons: [
+        {
+          text: 'Kopiraj URL',
+          handler: () => {
+            navigator.clipboard.writeText(this.url).then().catch(e => console.error(e));
+          }
+        }
+      ]
     });
     (await alert).present();
   }
@@ -36,4 +43,5 @@ export class InfluenserPocetnaPage implements OnInit {
     });
     await modal.present();
   }
+
 }

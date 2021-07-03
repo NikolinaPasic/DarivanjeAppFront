@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { OnlyLoggedInAdminGuardService } from './shared/services/only-logged-in-admin-guard.service';
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
   },
   {
     path: 'list-of-giveaways',
+    canActivate: [OnlyLoggedInAdminGuardService],
     loadChildren: () => import('./list-of-giveaways/list-of-giveaways.module').then( m => m.ListOfGiveawaysPageModule)
   },
   {
@@ -33,10 +35,12 @@ const routes: Routes = [
   },
   {
     path: 'admin-dashboard',
+    canActivate: [OnlyLoggedInAdminGuardService],
     loadChildren: () => import('./admin-dashboard/admin-dashboard.module').then( m => m.AdminDashboardPageModule)
   },
   {
     path: 'list-of-influencers',
+    canActivate: [OnlyLoggedInAdminGuardService],
     loadChildren: () => import('./list-of-influencers/list-of-influencers.module').then( m => m.ListOfInfluencersPageModule)
   },
   {
