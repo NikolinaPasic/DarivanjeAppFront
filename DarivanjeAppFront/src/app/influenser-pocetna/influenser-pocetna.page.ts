@@ -2,7 +2,6 @@
 /* eslint-disable @typescript-eslint/quotes */
 import { Component, OnInit } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
-import { ActiveGiveawayComponent } from '../active-giveaway/active-giveaway.component';
 import { CreateGiveawayComponent } from '../create-giveaway/create-giveaway.component';
 @Component({
   selector: 'app-influenser-pocetna',
@@ -45,13 +44,5 @@ export class InfluenserPocetnaPage implements OnInit {
     });
     await modal.present();
   }
-
-  async openModalGiveaway(){
-    const modal=await this.modalCtrl.create({
-        component:ActiveGiveawayComponent
-    });
-    await modal.present();
-  }
-
 
 }
