@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Router} from '@angular/router';
 import { Administrator } from '../models/administrator.model';
-import { ReplaySubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +10,7 @@ import { ReplaySubject } from 'rxjs';
 export class LoginAdminService {
 
   currentUser: any=null;
-  error: string=null;
+  error: any;
   admin: Administrator =  new Administrator();
 
   constructor(
@@ -34,7 +33,11 @@ export class LoginAdminService {
 
        },
        (error)=>{
-        console.log('Doslo je do greske');
+        {
+          this.router.navigateByUrl('/login-administrator');
+
+
+        }
        }
      );
        return this.currentUser;

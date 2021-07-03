@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/quotes */
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
-
+import { AlertController, ModalController } from '@ionic/angular';
+import { CreateGiveawayComponent } from '../create-giveaway/create-giveaway.component';
 @Component({
   selector: 'app-influenser-pocetna',
   templateUrl: './influenser-pocetna.page.html',
@@ -17,7 +17,7 @@ export class InfluenserPocetnaPage implements OnInit {
     centeredSlides : true
   };
 
-  constructor(private alertCtrl: AlertController) { }
+  constructor(private alertCtrl: AlertController, private modalCtrl: ModalController) { }
 
   ngOnInit() {
   }
@@ -29,5 +29,11 @@ export class InfluenserPocetnaPage implements OnInit {
       buttons: ['Copy']
     });
     (await alert).present();
+  }
+  async openModal(){
+    const modal=await this.modalCtrl.create({
+        component:CreateGiveawayComponent
+    });
+    await modal.present();
   }
 }

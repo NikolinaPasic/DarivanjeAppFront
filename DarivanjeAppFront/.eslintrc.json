@@ -6,6 +6,7 @@
       "files": ["*.ts"],
       "parserOptions": {
         "project": "DarivanjeAppFront/tsconfig.json",
+    
         "createDefaultProgram": true
       },
       "extends": [

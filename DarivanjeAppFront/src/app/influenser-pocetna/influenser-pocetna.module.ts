@@ -8,6 +8,7 @@ import { InfluenserPocetnaPageRoutingModule } from './influenser-pocetna-routing
 
 import { InfluenserPocetnaPage } from './influenser-pocetna.page';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { CreateGiveawayComponent } from '../create-giveaway/create-giveaway.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     InfluenserPocetnaPageRoutingModule,
     FlexLayoutModule
   ],
-  declarations: [InfluenserPocetnaPage]
+  declarations: [InfluenserPocetnaPage, CreateGiveawayComponent]
 })
 export class InfluenserPocetnaPageModule {}
