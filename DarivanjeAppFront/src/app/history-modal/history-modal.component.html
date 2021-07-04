@@ -13,9 +13,22 @@
         <ion-card-title>{{d.naziv}}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <ion-item>{{d.opis}}</ion-item>
-        <ion-item>{{d.datumOtvaranja}}</ion-item>
-        <ion-item>{{d.datumZatvaranja}}</ion-item>
+        <ion-item>
+          Opis: {{d.opis}}
+        </ion-item>
+        <ion-item>
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+            <ion-text>Datum otvaranja:</ion-text>
+            <ion-text>{{d.datumOtvaranja}}</ion-text>
+          </div>
+
+        </ion-item>
+        <ion-item>
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+            <ion-text>Datum zatvranja:</ion-text>
+            <ion-text>{{d.datumZatvaranja}}</ion-text>
+          </div>
+        </ion-item>
       </ion-card-content>
     </ion-card>
 </ion-list>
