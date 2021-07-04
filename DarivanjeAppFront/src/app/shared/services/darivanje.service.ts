@@ -20,7 +20,7 @@ export class DarivanjeService {
     return this.http.patch<any>('https://localhost:44328/approve-giveaway', darivanje)
     .subscribe(
       (response) => {
-        console.log(response.toString());
+        //console.log(response.toString());
       },
       (error) => {
         console.log(error.toString());
@@ -51,5 +51,8 @@ export class DarivanjeService {
        }
       }
     );
+
+  public vratiAktivnoDarivanje(id: number): Observable<any> {
+    return this.http.get<any>('https://localhost:44328/giveaway/' + id);
   }
 }
