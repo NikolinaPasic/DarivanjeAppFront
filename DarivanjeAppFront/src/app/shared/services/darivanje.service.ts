@@ -51,7 +51,7 @@ export class DarivanjeService {
        }
       }
     );
-
+}
   public vratiAktivnoDarivanje(id: number): Observable<any> {
     return this.http.get<any>('https://localhost:44328/giveaway/' + id);
   }
