@@ -1,0 +1,27 @@
+<ion-header no-border>
+  <ion-toolbar class="head" >
+    <ion-title class="ion-text-center">Istorija darivanja</ion-title>
+    <ion-buttons>
+      <ion-icon name="arrow-back-outline" (click) = "dismissModal()"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="background-image"  fxLayout="column" fxLayoutAlign="center center">
+  <ion-list class="list" *ngIf="darivanja.length > 0">
+    <ion-card *ngFor="let d of darivanja">
+      <ion-card-header>
+        <ion-card-title>{{d.naziv}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>{{d.opis}}</ion-item>
+        <ion-item>{{d.datumOtvaranja}}</ion-item>
+        <ion-item>{{d.datumZatvaranja}}</ion-item>
+      </ion-card-content>
+    </ion-card>
+</ion-list>
+<ion-card *ngIf="darivanja.length <=  0" class = "no-data-card">
+  <ion-card-content>
+    <ion-label>Do sada niste kreirali nijedno darivanje.</ion-label>
+  </ion-card-content>
+</ion-card>
+</ion-content>

@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
 import { stringify } from 'querystring';
 import { CreateGiveawayComponent } from '../create-giveaway/create-giveaway.component';
+import { HistoryModalComponent } from '../history-modal/history-modal.component';
 import { Darivanje } from '../shared/models/darivanje.model';
 import { DarivanjeService } from '../shared/services/darivanje.service';
 
@@ -20,8 +21,6 @@ import { DarivanjeService } from '../shared/services/darivanje.service';
 export class InfluenserPocetnaPage implements OnInit {
 
   url = 'https://www.instagram.com/imfashionbabe/';
-  naziv= 'Prvo darivanje';
-  opis= 'Ovo je opis prvog darivanja. Jedan jako lep opis, koji ce, nadam se, preci u novi red. Hvala.';
   aktivnoDarivanje: any;
   datumOtvaranja: any;
   datumZatvaranja: any;
@@ -117,4 +116,10 @@ export class InfluenserPocetnaPage implements OnInit {
     await modal.present();
   }
 
+  async openModalHistory() {
+    const modal=await this.modalCtrl.create({
+      component:HistoryModalComponent
+  });
+  await modal.present();
+  }
 }

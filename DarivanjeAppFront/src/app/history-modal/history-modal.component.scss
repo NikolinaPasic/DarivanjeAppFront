@@ -1,0 +1,27 @@
+.background-image{
+  --background: url("../../assets/img/backgrounds/DarivanjeApp-04.jpg") 0 0/100% 100% no-repeat;
+}
+
+.customToolbar{
+  --background: rgba(255, 255, 255,0);
+  position: absolute;
+  top: 0;
+  border: none;
+}
+
+.head {
+  --background: rgba(255, 255, 255, 0);
+  position: absolute;
+  top: 0;
+  border: 0px !important;
+  border-bottom-color: transparent !important;
+  border-width: 0 0 0 !important;
+  color: rgb(158, 29, 94);
+}
+.header-ios ion-toolbar:last-of-type {
+  --border-width: 0 0 0;
+}
+
+.no-data-card{
+  margin-top: 20%;
+}
