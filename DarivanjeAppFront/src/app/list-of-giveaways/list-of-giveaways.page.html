@@ -15,8 +15,10 @@
         <ion-card-content>
           <ion-label>{{d.opis}}</ion-label>
           <p></p>
-          <ion-button color="ion-color-favorite" class="btnOdobri" (click)="approveGivaway(d)">Odobri</ion-button>
-          <ion-button color="ion-color-favorite" class="btnOdbaci" (click)="notApproveGiveaway(d)">Odbaci</ion-button>
+          <div fxLayout="row" fxLayoutAlign="space-evenly center" >
+          <ion-button color="ion-color-favorite" class="btnOdobri"  (click)="approveGivaway(d)">Odobri</ion-button>
+          <ion-button color="ion-color-favorite" class="btnOdbaci"  (click)="notApproveGiveaway(d)">Odbaci</ion-button>
+          </div>
         </ion-card-content>
       </ion-card>
 </ion-list>
@@ -25,5 +27,4 @@
       <ion-label>Nemate darivanja na čekanju.</ion-label>
     </ion-card-content>
   </ion-card>
-<ion-router-outlet id = "main"></ion-router-outlet>
 </ion-content>

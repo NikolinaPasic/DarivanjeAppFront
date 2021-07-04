@@ -20,6 +20,9 @@ export class ListOfGiveawaysPage implements OnInit {
         .subscribe(darivanja => {
           console.log(darivanja);
           this.darivanja = darivanja;
+        },
+        (error)=>{
+          console.log(error);
         });
   }
 
