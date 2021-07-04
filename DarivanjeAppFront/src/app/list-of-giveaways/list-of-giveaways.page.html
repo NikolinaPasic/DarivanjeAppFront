@@ -9,11 +9,11 @@
   <ion-list class="list" *ngIf="darivanja.length > 0">
       <ion-card *ngFor="let d of darivanja">
         <ion-card-header>
-          <ion-card-title>{{ d.naziv }}</ion-card-title>
+          <ion-card-title>{{d.naziv}}</ion-card-title>
           <ion-label>{{d.kreiranOd.username}}</ion-label>
         </ion-card-header>
         <ion-card-content>
-          <ion-label>{{ d.opis }}</ion-label>
+          <ion-label>{{d.opis}}</ion-label>
           <p></p>
           <ion-button color="ion-color-favorite" class="btnOdobri" (click)="approveGivaway(d)">Odobri</ion-button>
           <ion-button color="ion-color-favorite" class="btnOdbaci" (click)="notApproveGiveaway(d)">Odbaci</ion-button>
