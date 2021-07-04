@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Darivanje } from '../models/darivanje.model';
 
@@ -9,7 +10,7 @@ import { Darivanje } from '../models/darivanje.model';
 })
 export class DarivanjeService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   public VratiNaCekanju(): Observable<any>{
     return this.http.get<any>('https://localhost:44328/giveaways');
@@ -35,6 +36,19 @@ export class DarivanjeService {
       },
       (error) => {
         console.log(error.toString());
+      }
+    );
+  }
+  public  kreiraj(darivanje: Darivanje){
+    this.http.post<any>('https://localhost:44328/add-giveaway', darivanje)
+    .subscribe(
+      (response)=>{
+        console.log(response);
+      },
+      (error)=>{
+       {
+        console.log(error);
+       }
       }
     );
   }

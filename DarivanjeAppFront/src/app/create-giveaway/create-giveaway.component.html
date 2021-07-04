@@ -3,12 +3,52 @@
   <ion-toolbar class="head" >
     <ion-title class="ion-text-center">Kreiraj novo darivanje</ion-title>
     <ion-buttons>
-      <ion-button (click)="dismissModal()">Zatvori</ion-button>
+      <ion-icon name="arrow-back-outline" (click)="dismissModal()"></ion-icon>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="background-image"  fxLayout="column" fxLayoutAlign="center center" >
+  <div class="sadrzaj">
+    <ion-card class="kreiraj-kartica" fxLayout="column" fxLayoutAlign="center center">
+      <ion-card-header>
+        <ion-card-title class="naslov">
+          Podaci
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="wrapper">
+      <div class="forma">
+      <form>
+        <ion-item lines="full">
+          <ion-label class="label" position="floating" >Naziv</ion-label>
+          <ion-input class="input-text" type="text" name ="naziv"  [(ngModel)]="darivanje.Naziv" required></ion-input>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label class="label" position="floating" >Opis</ion-label>
+          <ion-input class="input-text" type="text"  name="opis"  [(ngModel)]="darivanje.Opis" required></ion-input>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label class="label" position="floating" >Datum pocetka</ion-label>
+          <ion-input class="input-text" type="date"  name="datumpocetka" required [(ngModel)]="darivanje.DatumOtvaranja"placeholder=none></ion-input>
+        </ion-item>
+         <ion-item lines="full">
+          <ion-label class="label" position="floating" >Datum kraja</ion-label>
+          <ion-input class="input-text" type="date"  name="datumkraja" required [(ngModel)]="darivanje.DatumZatvaranja"placeholder=none></ion-input>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label class="label" position="floating" >Nagrada</ion-label>
+          <ion-input class="input-text" type="text"  name="nagrada" [(ngModel)]="darivanje.Nagrada.Opis" required></ion-input>
+        </ion-item>
 
+        <ion-row>
+          <ion-col>
+            <ion-button class="kreiraj-button"  expand="block" (click)="kreiraj()">Kreiraj</ion-button>
+          </ion-col>
+        </ion-row>
+      </form>
+      </div>
+    </ion-card-content>
+    </ion-card>
+  </div>
 
 </ion-content>
