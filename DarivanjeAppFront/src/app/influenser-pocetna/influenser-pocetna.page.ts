@@ -37,8 +37,10 @@ export class InfluenserPocetnaPage implements OnInit {
       (response) =>{
         this.aktivnoDarivanje = response;
         console.log(this.aktivnoDarivanje);
-        this.datumOtvaranja = this.aktivnoDarivanje.datumOtvaranja.toString();
-        this.datumZatvaranja = this.aktivnoDarivanje.datumZatvaranja.toString();
+        if (this.aktivnoDarivanje != null){
+          this.datumOtvaranja = this.aktivnoDarivanje.datumOtvaranja.toString();
+          this.datumZatvaranja = this.aktivnoDarivanje.datumZatvaranja.toString();
+        }
       },
       (error) => {
         console.log(error.toString());
@@ -88,46 +90,60 @@ export class InfluenserPocetnaPage implements OnInit {
   }
 
   async getGiveawayInfo() {
-    const alert = this.alertCtrl.create({
-      header: 'Osnovne informacije',
-      inputs:[
-        {
-          name: 'naziv',
-          type: 'text',
-          id: 'naziv',
-          value: this.aktivnoDarivanje.naziv,
-          disabled: false
-        },
-        {
-          name: 'opis',
-          type: 'textarea',
-          cssClass:'opis',
-          id: 'opis',
-          value:  this.aktivnoDarivanje.opis,
-          disabled: false
-        },
-        {
-          name: 'datumOtvaranja',
-          type: 'text',
-          id: '',
-          value: this.datumOtvaranja,
-          disabled: false
-        },
-        {
-          name: 'datumZatvaranja',
-          type: 'text',
-          id: '',
-          value:  this.datumZatvaranja,
-          disabled: false
-        }
-      ],
-      buttons: [
-        {
-          text: 'U redu'
-        }
-      ]
-    });
-    (await alert).present();
+    if (this.aktivnoDarivanje != null){
+      const alert = this.alertCtrl.create({
+        header: 'Osnovne informacije',
+        inputs:[
+          {
+            name: 'naziv',
+            type: 'text',
+            id: 'naziv',
+            value: this.aktivnoDarivanje.naziv,
+            disabled: false
+          },
+          {
+            name: 'opis',
+            type: 'textarea',
+            cssClass:'opis',
+            id: 'opis',
+            value:  this.aktivnoDarivanje.opis,
+            disabled: false
+          },
+          {
+            name: 'datumOtvaranja',
+            type: 'text',
+            id: '',
+            value: this.datumOtvaranja,
+            disabled: false
+          },
+          {
+            name: 'datumZatvaranja',
+            type: 'text',
+            id: '',
+            value:  this.datumZatvaranja,
+            disabled: false
+          }
+        ],
+        buttons: [
+          {
+            text: 'U redu'
+          }
+        ]
+      });
+      (await alert).present();
+    }else{
+      const alert = this.alertCtrl.create({
+        header: 'Osnovne informacije',
+        message: 'Trenutno nemate aktivno darivanje',
+        buttons: [
+          {
+            text: 'U redu'
+          }
+        ]
+      });
+      (await alert).present();
+    }
+
   }
 
   async openModal(){
