@@ -30,7 +30,7 @@ const routes: Routes = [
     loadChildren: () => import('./ucesnik-pocetna/ucesnik-pocetna.module').then( m => m.UcesnikPocetnaPageModule)
   },
   {
-    path: 'giveaway',
+    path: 'giveaway/:id',
     loadChildren: () => import('./giveaway/giveaway.module').then( m => m.GiveawayPageModule)
   },
   {
@@ -47,11 +47,6 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./user-login/user-login.module').then( m => m.UserLoginPageModule)
   },
-
-
-
-
-
 ];
 
 @NgModule({

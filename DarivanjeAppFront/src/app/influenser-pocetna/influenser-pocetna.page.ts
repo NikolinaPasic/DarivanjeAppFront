@@ -25,7 +25,6 @@ export class InfluenserPocetnaPage implements OnInit {
   datumOtvaranja: any;
   datumZatvaranja: any;
 
-
   slideOpts = {
     initialSlide: 0,
     speed: 400,
@@ -51,6 +50,7 @@ export class InfluenserPocetnaPage implements OnInit {
   }
 
   async getURL() {
+    this.url = this.createActiveGiveawayURL();
     if (this.url === ''){
       const alert1 = this.alertCtrl.create({
         header: 'URL za deljenje',
@@ -76,6 +76,14 @@ export class InfluenserPocetnaPage implements OnInit {
         ]
       });
       (await alert).present();
+    }
+  }
+
+  createActiveGiveawayURL() {
+    if(this.aktivnoDarivanje != null){
+      return this.url = 'http://localhost:8100/giveaway/' + this.aktivnoDarivanje.darivanjeId;
+    }else{
+      return this.url = '';
     }
   }
 
