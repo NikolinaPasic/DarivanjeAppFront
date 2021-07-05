@@ -20,7 +20,7 @@ import { DarivanjeService } from '../shared/services/darivanje.service';
 })
 export class InfluenserPocetnaPage implements OnInit {
 
-  url = 'https://www.instagram.com/imfashionbabe/';
+  url = '';
   aktivnoDarivanje: any;
   datumOtvaranja: any;
   datumZatvaranja: any;
@@ -51,19 +51,32 @@ export class InfluenserPocetnaPage implements OnInit {
   }
 
   async getURL() {
-    const alert = this.alertCtrl.create({
-      header: 'URL za deljenje',
-      message: this.url,
-      buttons: [
-        {
-          text: 'Kopiraj URL',
-          handler: () => {
-            navigator.clipboard.writeText(this.url).then().catch(e => console.error(e));
+    if (this.url === ''){
+      const alert1 = this.alertCtrl.create({
+        header: 'URL za deljenje',
+        message: 'Nemate nijedno aktivno darivanje',
+        buttons: [
+          {
+            text: 'U redu'
           }
-        }
-      ]
-    });
-    (await alert).present();
+        ]
+      });
+      (await alert1).present();
+    }else{
+      const alert = this.alertCtrl.create({
+        header: 'URL za deljenje',
+        message: this.url,
+        buttons: [
+          {
+            text: 'Kopiraj URL',
+            handler: () => {
+              navigator.clipboard.writeText(this.url).then().catch(e => console.error(e));
+            }
+          }
+        ]
+      });
+      (await alert).present();
+    }
   }
 
   async getGiveawayInfo() {
@@ -122,4 +135,5 @@ export class InfluenserPocetnaPage implements OnInit {
   });
   await modal.present();
   }
+
 }
