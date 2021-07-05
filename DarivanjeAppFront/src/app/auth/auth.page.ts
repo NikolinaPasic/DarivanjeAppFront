@@ -25,7 +25,7 @@ export class AuthPage implements OnInit {
         this.authService.sendAccessToken(userAuth).subscribe(
           (response) => {
             localStorage.setItem('token', response.token);
-            this.router.navigate(['/ucesnik-pocetna']);
+            this.router.navigate(['/influenser-pocetna']);
           },
           (error)=>{
             console.log('error with authentification 2');

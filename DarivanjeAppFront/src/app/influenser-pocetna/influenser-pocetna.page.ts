@@ -83,7 +83,7 @@ export class InfluenserPocetnaPage implements OnInit {
 
   createActiveGiveawayURL() {
     if(this.aktivnoDarivanje != null){
-      return this.url = 'http://localhost:8100/giveaway/' + this.aktivnoDarivanje.darivanjeId;
+      return this.url = 'https://localhost:8100/giveaway/' + this.aktivnoDarivanje.darivanjeId;
     }else{
       return this.url = '';
     }
