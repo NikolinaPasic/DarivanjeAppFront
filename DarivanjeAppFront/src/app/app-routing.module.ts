@@ -1,16 +1,13 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { OnlyLoggedInAdminGuardService } from './shared/services/only-logged-in-admin-guard.service';
+import { OnlyLoggedInUserGuard } from './shared/services/only-logged-in-user.guard';
 
 const routes: Routes = [
   {
     path: 'home',
+    canActivate: [OnlyLoggedInUserGuard],
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  {
-    path: '',
-    redirectTo: 'login-administrator',
-    pathMatch: 'full'
   },
   {
     path: 'login-administrator',
@@ -23,14 +20,17 @@ const routes: Routes = [
   },
   {
     path: 'influenser-pocetna',
+    canActivate: [OnlyLoggedInUserGuard],
     loadChildren: () => import('./influenser-pocetna/influenser-pocetna.module').then( m => m.InfluenserPocetnaPageModule)
   },
   {
     path: 'ucesnik-pocetna',
+    canActivate: [OnlyLoggedInUserGuard],
     loadChildren: () => import('./ucesnik-pocetna/ucesnik-pocetna.module').then( m => m.UcesnikPocetnaPageModule)
   },
   {
     path: 'giveaway/:id',
+    canActivate: [OnlyLoggedInUserGuard],
     loadChildren: () => import('./giveaway/giveaway.module').then( m => m.GiveawayPageModule)
   },
   {
@@ -46,6 +46,20 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./user-login/user-login.module').then( m => m.UserLoginPageModule)
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then( m => m.AuthPageModule)
+  },
+  {
+    path: '',
+    redirectTo: 'ucesnik-pocetna',
+    pathMatch: 'full'
+  },
+  {
+    path: '**',
+    redirectTo: 'ucesnik-pocetna',
+    pathMatch: 'full'
   },
 ];
 
