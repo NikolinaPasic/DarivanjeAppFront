@@ -45,8 +45,8 @@
       </div>
     </div>
     <div class="dugmence" fxLayout="row" fxLayoutAlign="end center">
-        <ion-button class="enter-button" expand="block" (click)="enterGiveaway()" >Enter giveaway</ion-button>
-        <ion-fab-button class="lajk" color="light">
+        <ion-button class="enter-button" *ngIf="!this.signal" expand="block" (click)="enterGiveaway()" >Enter giveaway</ion-button>
+        <ion-fab-button class="lajk" color="light" (click)="likeGiveaway()">
           <ion-icon name="heart"></ion-icon>
         </ion-fab-button>
       </div>

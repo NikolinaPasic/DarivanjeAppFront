@@ -1,0 +1,41 @@
+.background-image {
+  --background: url("../../assets/img/backgrounds/DarivanjeApp-04.jpg") 0 0/100%
+    100% no-repeat;
+}
+
+.head {
+  --background: rgba(255, 255, 255, 0);
+  position: absolute;
+  top: 0;
+  border: 0px !important;
+  border-bottom-color: transparent !important;
+  border-width: 0 0 0 !important;
+  color: rgb(158, 29, 94);
+}
+.header-ios ion-toolbar:last-of-type {
+  --border-width: 0 0 0;
+}
+.sadrzaj {
+  margin-top: 40%;
+}
+.kreiraj-kartica {
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 4px;
+  background-color: rgba(255, 255, 255, 0.753);
+}
+.naslov {
+  font-size: 20px;
+  color: rgb(158, 29, 94);
+}
+.kreiraj-button {
+  color: white;
+}
+.button-solid {
+  --background-focused: rgb(158, 29, 94) !important;
+  --background-activated: rgb(158, 29, 94) !important;
+}
+.polje {
+  background-color: none;
+}
+.item-native {
+  --background: none !important;
+}

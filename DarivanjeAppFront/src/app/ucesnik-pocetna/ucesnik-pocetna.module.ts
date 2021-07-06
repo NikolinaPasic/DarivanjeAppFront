@@ -8,6 +8,7 @@ import { UcesnikPocetnaPageRoutingModule } from './ucesnik-pocetna-routing.modul
 
 import { UcesnikPocetnaPage } from './ucesnik-pocetna.page';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { WinnerModalComponent } from '../winner-modal/winner-modal.component';
 
 @NgModule({
   imports: [

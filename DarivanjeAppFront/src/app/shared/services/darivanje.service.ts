@@ -10,22 +10,30 @@ import { Ucestvovanje } from '../models/ucestvovanje-model';
   providedIn: 'root'
 })
 export class DarivanjeService {
+
   u: Ucestvovanje= new Ucestvovanje();
 
   constructor(private http: HttpClient, private router: Router) { }
-  public PrijaviSe(id: number, arg1: number){
+
+  LikeGiveaway(id: number, arg1: number) {
+    console.log(this.u.DarivanjeId);
+    this.u.UcesnikId=arg1;
+   return this.http.post<any>('https://localhost:44328/like-giveaway',this.u)
+   .subscribe(
+     (response) => {
+       console.log(response.toString());
+     },
+     (error) => {
+       console.log(error.message);
+     }
+   );
+  }
+
+  public PrijaviSe(id: number, arg1: number): Observable<any>{
      this.u.DarivanjeId=id;
      console.log(this.u.DarivanjeId);
      this.u.UcesnikId=arg1;
-    return this.http.post<any>('https://localhost:44328/enter',this.u)
-    .subscribe(
-      (response) => {
-        console.log(response.toString());
-      },
-      (error) => {
-        console.log(error.message);
-      }
-    );
+     return this.http.post<any>('https://localhost:44328/enter',this.u);
   }
 
   public VratiNaCekanju(): Observable<any>{
@@ -55,7 +63,8 @@ export class DarivanjeService {
       }
     );
   }
-  public  kreiraj(darivanje: Darivanje){
+
+  public kreiraj(darivanje: Darivanje){
     this.http.post<any>('https://localhost:44328/add-giveaway', darivanje)
     .subscribe(
       (response)=>{
@@ -68,12 +77,21 @@ export class DarivanjeService {
       }
     );
   }
+
   public vratiAktivnoDarivanje(id: number): Observable<any> {
     return this.http.get<any>('https://localhost:44328/active-giveaway/' + id);
   }
 
   getGiveaways(id: number): Observable<any> {
     return this.http.get<any>('https://localhost:44328/finished-giveaways/'+ id);
+  }
+
+  getGiveaway(darivanjeId: number): Observable<any> {
+    return this.http.get<any>('https://localhost:44328/get-giveaway/'+ darivanjeId);
+  }
+
+  getEntries(id: number) {
+    return this.http.get<any>('https://localhost:44328/get-enters/' + id);
   }
 
 }

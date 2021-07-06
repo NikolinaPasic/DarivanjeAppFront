@@ -11,6 +11,7 @@ import { CreateGiveawayComponent } from '../create-giveaway/create-giveaway.comp
 import { HistoryModalComponent } from '../history-modal/history-modal.component';
 import { Darivanje } from '../shared/models/darivanje.model';
 import { DarivanjeService } from '../shared/services/darivanje.service';
+import { WinnerModalComponent } from '../winner-modal/winner-modal.component';
 
 
 @Component({
@@ -160,4 +161,10 @@ export class InfluenserPocetnaPage implements OnInit {
   await modal.present();
   }
 
+  async openModalWinner(){
+    const modal=await this.modalCtrl.create({
+        component:WinnerModalComponent
+    });
+    await modal.present();
+  }
 }
