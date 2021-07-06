@@ -76,4 +76,8 @@ export class DarivanjeService {
     return this.http.get<any>('https://localhost:44328/finished-giveaways/'+ id);
   }
 
+  getEnteredGiveawaysByUser(id: number): Observable<any> {
+    return this.http.get<any>('https://localhost:44328/entered-giveaway/' + id);
+  }
+
 }
