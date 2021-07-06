@@ -93,5 +93,8 @@ export class DarivanjeService {
   getEntries(id: number) {
     return this.http.get<any>('https://localhost:44328/get-enters/' + id);
   }
+  getEnteredGiveawaysByUser(id: number): Observable<any> {
+    return this.http.get<any>('https://localhost:44328/entered-giveaway/' + id);
+  }
 
 }

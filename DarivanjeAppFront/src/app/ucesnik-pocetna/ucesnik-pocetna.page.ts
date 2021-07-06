@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
+import { EnterHistoryModalComponent } from '../enter-history-modal/enter-history-modal.component';
+import { HistoryModalComponent } from '../history-modal/history-modal.component';
 
 @Component({
   selector: 'app-ucesnik-pocetna',
@@ -9,33 +11,11 @@ import { AlertController } from '@ionic/angular';
 })
 export class UcesnikPocetnaPage implements OnInit {
 
-  constructor(private alertCtrl: AlertController, private router: Router) { }
+  constructor(private alertCtrl: AlertController, private router: Router, private modalCtrl: ModalController) { }
 
   ngOnInit() {
   }
 
-  /*  async enterURL(){
-      const alert = this.alertCtrl.create({
-        header: 'Unesite URL darivanja',
-        inputs:[
-          {
-            name: 'url',
-            type: 'text',
-            id: 'url'
-          }
-        ],
-        buttons: [
-          {
-            text: 'Pretraži',
-         //   handler: () => {
-           //   navigator.clipboard.writeText(this.url).then().catch(e => console.error(e));
-            //}
-          }
-        ]
-      });
-      (await alert).present();
-
-  } */
   async enterUrl() {
     let link =null;
     const alert = await this.alertCtrl.create({
@@ -58,6 +38,14 @@ export class UcesnikPocetnaPage implements OnInit {
       ]
     });
     await alert.present();
+  }
+
+  async openHistoryModal() {
+    const modal = await this.modalCtrl.create({
+        component: EnterHistoryModalComponent
+    });
+
+    await modal.present();
   }
 
 }

@@ -9,6 +9,8 @@ import { UcesnikPocetnaPageRoutingModule } from './ucesnik-pocetna-routing.modul
 import { UcesnikPocetnaPage } from './ucesnik-pocetna.page';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { WinnerModalComponent } from '../winner-modal/winner-modal.component';
+import { HistoryModalComponent } from '../history-modal/history-modal.component';
+import { EnterHistoryModalComponent } from '../enter-history-modal/enter-history-modal.component';
 
 @NgModule({
   imports: [
@@ -18,6 +20,6 @@ import { WinnerModalComponent } from '../winner-modal/winner-modal.component';
     FlexLayoutModule,
     UcesnikPocetnaPageRoutingModule
   ],
-  declarations: [UcesnikPocetnaPage]
+  declarations: [UcesnikPocetnaPage, EnterHistoryModalComponent]
 })
 export class UcesnikPocetnaPageModule {}
