@@ -4,13 +4,29 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Darivanje } from '../models/darivanje.model';
+import { Ucestvovanje } from '../models/ucestvovanje-model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DarivanjeService {
+  u: Ucestvovanje= new Ucestvovanje();
 
   constructor(private http: HttpClient, private router: Router) { }
+  public PrijaviSe(id: number, arg1: number){
+     this.u.DarivanjeId=id;
+     console.log(this.u.DarivanjeId);
+     this.u.UcesnikId=arg1;
+    return this.http.post<any>('https://localhost:44328/enter',this.u)
+    .subscribe(
+      (response) => {
+        console.log(response.toString());
+      },
+      (error) => {
+        console.log(error.message);
+      }
+    );
+  }
 
   public VratiNaCekanju(): Observable<any>{
     return this.http.get<any>('https://localhost:44328/giveaways');

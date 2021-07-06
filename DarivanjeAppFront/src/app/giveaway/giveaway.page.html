@@ -24,11 +24,12 @@
         <label class="numbers">889</label>
         <label class="textinfo">Following</label>
       </div>
-
     </div>
     </div>
     <div class="content" fxLayout="column" fxLayoutAlign="center center">
+      <div fxLayout="row" fxLayoutAlign="start center" >
       <label class="title">Osvoji Bebe by Dunja!</label>
+      </div>
       <div class="lista">
       <div fxLayout="row" fxLayoutAlign="start center" >
         <img  class="photon" src="./assets/bebedol.jpg" alt="">
@@ -44,7 +45,10 @@
       </div>
     </div>
     <div class="dugmence" fxLayout="row" fxLayoutAlign="end center">
-        <ion-button class="enter-button" expand="block" >Enter giveaway</ion-button>
-    </div>
+        <ion-button class="enter-button" expand="block" (click)="enterGiveaway()" >Enter giveaway</ion-button>
+        <ion-fab-button class="lajk" color="light">
+          <ion-icon name="heart"></ion-icon>
+        </ion-fab-button>
+      </div>
     </div>
 </ion-content>
