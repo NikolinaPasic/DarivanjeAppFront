@@ -11,7 +11,7 @@ export class HistoryModalComponent  {
 
   public darivanja: Array<any> =  [];
   constructor(private modalCtrl: ModalController, private darivanjeService: DarivanjeService) {
-    this.darivanjeService.getGiveaways(1)
+    this.darivanjeService.getGiveaways(2)
       .subscribe(
         (response) => {
           this.darivanja = response;

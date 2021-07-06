@@ -32,7 +32,7 @@ export class InfluenserPocetnaPage implements OnInit {
   };
 
   constructor(private alertCtrl: AlertController, private modalCtrl: ModalController, private darivanjeService: DarivanjeService) {
-    this.darivanjeService.vratiAktivnoDarivanje(1)
+    this.darivanjeService.vratiAktivnoDarivanje(2)
     .subscribe(
       (response) =>{
         this.aktivnoDarivanje = response;
@@ -83,7 +83,7 @@ export class InfluenserPocetnaPage implements OnInit {
 
   createActiveGiveawayURL() {
     if(this.aktivnoDarivanje != null){
-      return this.url = 'http://localhost:8100/giveaway/' + this.aktivnoDarivanje.darivanjeId;
+      return this.url = 'https://localhost:8100/giveaway/' + this.aktivnoDarivanje.darivanjeId;
     }else{
       return this.url = '';
     }
