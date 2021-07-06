@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -18,7 +18,10 @@ export class DarivanjeService {
   LikeGiveaway(id: number, arg1: number) {
     console.log(this.u.DarivanjeId);
     this.u.UcesnikId=arg1;
-   return this.http.post<any>('https://localhost:44328/like-giveaway',this.u)
+   return this.http.post<any>('https://localhost:44328/like-giveaway',this.u,
+   {
+    headers: new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token')),
+  })
    .subscribe(
      (response) => {
        console.log(response.toString());
@@ -33,15 +36,24 @@ export class DarivanjeService {
      this.u.DarivanjeId=id;
      console.log(this.u.DarivanjeId);
      this.u.UcesnikId=arg1;
-     return this.http.post<any>('https://localhost:44328/enter',this.u);
+     return this.http.post<any>('https://localhost:44328/enter',this.u,
+     {
+      headers: new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token')),
+    });
   }
 
   public VratiNaCekanju(): Observable<any>{
-    return this.http.get<any>('https://localhost:44328/giveaways');
+    return this.http.get<any>('https://localhost:44328/giveaways',
+    {
+      headers: new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token')),
+    });
   }
 
   public OdobriDarivanje(darivanje: Darivanje){
-    return this.http.patch<any>('https://localhost:44328/approve-giveaway', darivanje)
+    return this.http.patch<any>('https://localhost:44328/approve-giveaway', darivanje,
+    {
+      headers: new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token')),
+    })
     .subscribe(
       (response) => {
         //console.log(response.toString());
@@ -53,7 +65,10 @@ export class DarivanjeService {
   }
 
   OdbaciDarivanje(darivanje: Darivanje) {
-    return this.http.patch<any>('https://localhost:44328/unapprove-giveaway', darivanje)
+    return this.http.patch<any>('https://localhost:44328/unapprove-giveaway', darivanje,
+    {
+      headers: new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token')),
+    })
     .subscribe(
       (response) => {
         console.log(response.toString());
@@ -65,7 +80,10 @@ export class DarivanjeService {
   }
 
   public kreiraj(darivanje: Darivanje){
-    this.http.post<any>('https://localhost:44328/add-giveaway', darivanje)
+    this.http.post<any>('https://localhost:44328/add-giveaway', darivanje,
+    {
+      headers: new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token')),
+    })
     .subscribe(
       (response)=>{
         console.log(response);
@@ -79,22 +97,36 @@ export class DarivanjeService {
   }
 
   public vratiAktivnoDarivanje(id: number): Observable<any> {
-    return this.http.get<any>('https://localhost:44328/active-giveaway/' + id);
+    return this.http.get<any>('https://localhost:44328/active-giveaway/' + id,
+     {
+      headers: new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token')),
+    });
   }
 
   getGiveaways(id: number): Observable<any> {
-    return this.http.get<any>('https://localhost:44328/finished-giveaways/'+ id);
+    return this.http.get<any>('https://localhost:44328/finished-giveaways/'+ id, {
+      headers: new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token')),
+    });
   }
 
   getGiveaway(darivanjeId: number): Observable<any> {
-    return this.http.get<any>('https://localhost:44328/get-giveaway/'+ darivanjeId);
+    return this.http.get<any>('https://localhost:44328/get-giveaway/'+ darivanjeId,
+    {
+      headers: new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token')),
+    });
   }
 
   getEntries(id: number) {
-    return this.http.get<any>('https://localhost:44328/get-enters/' + id);
+    return this.http.get<any>('https://localhost:44328/get-enters/' + id,
+    {
+      headers: new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token')),
+    });
   }
   getEnteredGiveawaysByUser(id: number): Observable<any> {
-    return this.http.get<any>('https://localhost:44328/entered-giveaway/' + id);
+    return this.http.get<any>('https://localhost:44328/entered-giveaway/' + id,
+     {
+      headers: new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token')),
+    });
   }
 
 }
