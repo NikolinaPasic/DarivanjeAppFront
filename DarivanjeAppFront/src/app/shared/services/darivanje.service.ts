@@ -130,14 +130,14 @@ export class DarivanjeService {
     });
   }
 
-  getNumberOfEnters(id: number): Observable<any> {
-    return this.http.get<any>('https://localhost:44328/enters/'+id,
+  getNumberOfEnters(d: Darivanje): Observable<any> {
+    return this.http.post<any>('https://localhost:44328/number-of-enters', d,
     {
       headers: new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token')),
     });
   }
 
-  closeGiveaway(aktivnoDarivanje: Darivanje) {
+  closeGiveaway(aktivnoDarivanje: Darivanje): Observable<any> {
     return this.http.patch<any>('https://localhost:44328/close-giveaway',aktivnoDarivanje,
     {
       headers: new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token')),

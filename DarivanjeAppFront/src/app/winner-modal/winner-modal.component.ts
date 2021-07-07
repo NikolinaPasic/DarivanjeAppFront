@@ -25,18 +25,13 @@ export class WinnerModalComponent implements OnInit {
     .subscribe(
       (response) =>{
         this.aktivnoDarivanje = response;
-        console.log('ovo je aktivno darivanje koje treba zatvoriti i birati pobednika');
         console.log(Number(this.aktivnoDarivanje.darivanjeId));
 
-        this.darivanjeService.getNumberOfEnters(this.aktivnoDarivanje.darivanjeId)
+        this.darivanjeService.getNumberOfEnters(this.aktivnoDarivanje)
         .subscribe(
           (resp) =>{
-            this.brojPrijavljenih =0;
-            this.ucestvovanja = resp;
-            this.ucestvovanja.forEach(element => {
-                this.brojPrijavljenih++;
-            });
-            console.log(this.brojPrijavljenih);
+            this.brojPrijavljenih = resp;
+            console.log('Ovo je broj prijavljenih ' + this.brojPrijavljenih);
           },
           (error) => {
             console.log(error.toString());
