@@ -137,8 +137,8 @@ export class DarivanjeService {
     });
   }
 
-  closeGiveaway(id: number) {
-    return this.http.patch<any>('https://localhost:44328/close-giveaway/'+id,
+  closeGiveaway(aktivnoDarivanje: Darivanje) {
+    return this.http.patch<any>('https://localhost:44328/close-giveaway',aktivnoDarivanje,
     {
       headers: new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token')),
     }

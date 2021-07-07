@@ -64,7 +64,7 @@ export class WinnerModalComponent implements OnInit {
     console.log(random);
 
     console.log(this.ucestvovanja[random]);
-    this.darivanjeService.closeGiveaway(this.aktivnoDarivanje.darivanjeId)
+    this.darivanjeService.closeGiveaway(this.aktivnoDarivanje)
     .subscribe(
       (resp) =>{
         console.log(resp);
