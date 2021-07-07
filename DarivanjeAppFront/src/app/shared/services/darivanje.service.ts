@@ -117,8 +117,8 @@ export class DarivanjeService {
     });
   }
 
-  getEntries(id: number) {
-    return this.http.get<any>('https://localhost:44328/get-enters/' + id,
+  getEntries(d: Darivanje) {
+    return this.http.post<any>('https://localhost:44328/enters' , d,
     {
       headers: new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token')),
     });

@@ -31,7 +31,7 @@ export class GiveawayPage implements OnInit {
         this.konkretnoDarivanje = response;
         console.log(response);
 
-        this.darivanjeService.getEntries(this.id)
+        this.darivanjeService.getEntries(this.konkretnoDarivanje)
           .subscribe(
             (res)=>{
               this.ucestvovanja = res;

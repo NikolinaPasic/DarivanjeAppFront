@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ActivationEnd } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { Darivanje } from '../shared/models/darivanje.model';
+import { Ucesnik } from '../shared/models/ucesnik.modal';
+import { Ucestvovanje } from '../shared/models/ucestvovanje-model';
 import { DarivanjeService } from '../shared/services/darivanje.service';
 
 @Component({
@@ -17,6 +19,7 @@ export class WinnerModalComponent implements OnInit {
   public brojPrijavljenih: number;
   public idDarivanja: number;
   public ucestvovanja: Array<any> = [];
+  public pobednik: string =  null;
 
   constructor(private ctrl: ModalController, private darivanjeService: DarivanjeService, private activetedRoute: ActivatedRoute) { }
 
@@ -32,6 +35,17 @@ export class WinnerModalComponent implements OnInit {
           (resp) =>{
             this.brojPrijavljenih = resp;
             console.log('Ovo je broj prijavljenih ' + this.brojPrijavljenih);
+
+            this.darivanjeService.getEntries(this.aktivnoDarivanje)
+            .subscribe(
+              (resp2) =>{
+                this.ucestvovanja = resp2;
+                console.log(resp2);
+              },
+              (error) => {
+                console.log(error.toString());
+              }
+            );
           },
           (error) => {
             console.log(error.toString());
@@ -51,7 +65,7 @@ export class WinnerModalComponent implements OnInit {
   izaberiPobednika() {
     const niz: Array<any> = [];
 
-    for(let i=1; i<=this.ucestvovanja.length; i++) {
+    for(let i=1; i<=this.brojPrijavljenih; i++) {
       niz.push(i);
     }
 
@@ -59,10 +73,12 @@ export class WinnerModalComponent implements OnInit {
     console.log(random);
 
     console.log(this.ucestvovanja[random]);
+    this.pobednik = this.ucestvovanja[random].ucesnik.username;
+
     this.darivanjeService.closeGiveaway(this.aktivnoDarivanje)
     .subscribe(
       (resp) =>{
-        console.log(resp);
+        //console.log(resp);
       },
       (error) => {
         console.log(error.toString());
