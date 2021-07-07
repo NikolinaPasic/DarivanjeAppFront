@@ -12,6 +12,7 @@ import { Ucestvovanje } from '../models/ucestvovanje-model';
 export class DarivanjeService {
 
   u: Ucestvovanje= new Ucestvovanje();
+  aktivnoDarivanje: Darivanje = new Darivanje();
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -129,4 +130,18 @@ export class DarivanjeService {
     });
   }
 
+  getNumberOfEnters(id: number): Observable<any> {
+    return this.http.get<any>('https://localhost:44328/enters/'+id,
+    {
+      headers: new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token')),
+    });
+  }
+
+  closeGiveaway(id: number) {
+    return this.http.patch<any>('https://localhost:44328/close-giveaway/'+id,
+    {
+      headers: new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token')),
+    }
+    );
+  }
 }

@@ -12,11 +12,15 @@
     <ion-card class="kreiraj-kartica" fxLayout="column" fxLayoutAlign="center center">
       <ion-card-header>
         <ion-card-title class="naslov">
-
+          {{aktivnoDarivanje.naziv}}
         </ion-card-title>
       </ion-card-header>
       <ion-card-content class="wrapper">
-
+      <div fxLayout="column" fxLayoutAlign="space-around center" >
+      <ion-label>Broj prijavljenih učesnika: </ion-label>
+      <ion-label class="prijavljeni">{{brojPrijavljenih}}</ion-label>
+      <ion-button (click) = "izaberiPobednika()">Izaberi pobednika</ion-button>
+      </div>
     </ion-card-content>
     </ion-card>
   </div>
