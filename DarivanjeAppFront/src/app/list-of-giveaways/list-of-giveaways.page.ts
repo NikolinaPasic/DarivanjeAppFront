@@ -3,6 +3,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Darivanje } from '../shared/models/darivanje.model';
 import { DarivanjeService } from '../shared/services/darivanje.service';
 
@@ -16,37 +17,45 @@ export class ListOfGiveawaysPage implements OnInit {
    darivanja: Array<any>  = [];
 
   constructor(private darivanjeService: DarivanjeService, private router: Router, activeRoute: ActivatedRoute) {
-    this.darivanjeService.VratiNaCekanju()
-        .subscribe(darivanja => {
-          console.log(darivanja);
-          this.darivanja = darivanja;
-        },
-        (error)=>{
-          console.log(error);
-        });
   }
 
+  ionViewWillEnter(){
+    this.darivanjeService.VratiNaCekanju().
+    pipe(
+      map((response)=>{
+        console.log(response);
+
+        this.darivanja=response;
+      })).subscribe();
+  }
   ngOnInit() {
   }
 
   approveGivaway(d: Darivanje): void {
     d.AdminId = Number(localStorage.getItem('adminid'));
     this.darivanjeService.OdobriDarivanje(d);
-    this.router.navigate([this.router]);
+    this.darivanjeService.VratiNaCekanju().
+    pipe(
+      map((response)=>{
+        console.log(response);
+
+        this.darivanja=response;
+      })).subscribe();
+
   }
 
   notApproveGiveaway(d: Darivanje): void{
     d.AdminId = Number(localStorage.getItem('adminid'));
     this.darivanjeService.OdbaciDarivanje(d);
-    this.router.navigate([this.router]);
+    this.darivanjeService.VratiNaCekanju().
+    pipe(
+      map((response)=>{
+        console.log(response);
+
+        this.darivanja=response;
+      })).subscribe();
   }
 
-  reloadCurrentPage(){
-    const currentUrl = this.router.url;
-    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
-    this.router.navigate([currentUrl]);
-    });
-  }
 
 
 }

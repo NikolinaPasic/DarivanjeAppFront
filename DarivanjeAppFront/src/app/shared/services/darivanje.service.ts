@@ -1,8 +1,11 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable @typescript-eslint/naming-convention */
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ParsedEvent } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 import { Darivanje } from '../models/darivanje.model';
 import { Ucestvovanje } from '../models/ucestvovanje-model';
 
@@ -13,6 +16,7 @@ export class DarivanjeService {
 
   u: Ucestvovanje= new Ucestvovanje();
   aktivnoDarivanje: Darivanje = new Darivanje();
+  _darivanjaNaCekanju= new BehaviorSubject<Darivanje[]>([]);
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -44,17 +48,11 @@ export class DarivanjeService {
   }
 
   public VratiNaCekanju(): Observable<any>{
-    return this.http.get<any>('https://localhost:44328/giveaways',
-    {
-      headers: new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token')),
-    });
+    return this.http.get<any>('https://localhost:44328/giveaways');
   }
 
   public OdobriDarivanje(darivanje: Darivanje){
-    return this.http.patch<any>('https://localhost:44328/approve-giveaway', darivanje,
-    {
-      headers: new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token')),
-    })
+    return this.http.patch<any>('https://localhost:44328/approve-giveaway', darivanje)
     .subscribe(
       (response) => {
         //console.log(response.toString());
@@ -66,10 +64,7 @@ export class DarivanjeService {
   }
 
   OdbaciDarivanje(darivanje: Darivanje) {
-    return this.http.patch<any>('https://localhost:44328/unapprove-giveaway', darivanje,
-    {
-      headers: new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token')),
-    })
+    return this.http.patch<any>('https://localhost:44328/unapprove-giveaway', darivanje)
     .subscribe(
       (response) => {
         console.log(response.toString());

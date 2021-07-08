@@ -25,9 +25,13 @@
     </ion-card>
     <div fxLayout="column" fxLayoutAlign="space-around center" >
       <ion-row *ngIf="pobednik !== undefined">
-        <ion-col>
+        <ion-col fxLayout="column" fxLayoutAlign="space-around center" >
+          <ion-row>
           <ion-label class = "pobednik">Pobednik je: </ion-label>
-          <ion-label>{{pobednik}}</ion-label>
+        </ion-row>
+          <ion-row>
+          <ion-label class= "pobednik">{{pobednik}}</ion-label>
+          </ion-row>
         </ion-col>
       </ion-row>
   </div>
