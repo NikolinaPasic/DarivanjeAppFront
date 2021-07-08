@@ -1,71 +1,71 @@
 <ion-content class="background-image">
 
-    <div class="profile-photo">
-      <div class="wrap"  fxLayout="column" fxLayoutAlign="center center">
-      <img  class="photo" src="./assets/dunja.jpg" alt="">
+  <div class="profile-photo">
+    <div class="wrap" fxLayout="column" fxLayoutAlign="center center">
+      <img class="photo" src="./assets/dunja.jpg" alt="">
       <label class="username">imfashionbabe</label>
+    </div>
+    <div class="info" fxLayout="row" fxLayoutAlign="space-evenly center">
+      <div class="posts" fxLayout="column" fxLayoutAlign="space-evenly center">
+        <label class="numbers">2,181</label>
+        <label class="textinfo">Objave</label>
       </div>
-      <div class="info" fxLayout="row" fxLayoutAlign="space-evenly center" >
-        <div class="posts" fxLayout="column" fxLayoutAlign="space-evenly center">
-          <label class="numbers">2,181</label>
-          <label class="textinfo">Objave</label>
-        </div>
-        <div class="followers" fxLayout="column" fxLayoutAlign="space-evenly center">
-          <label class="numbers">300K</label>
-          <label class="textinfo">Pratioci</label>
-        </div>
-        <div class="following" fxLayout="column" fxLayoutAlign="space-evenly center">
-          <label class="numbers">889</label>
-          <label class="textinfo">Prati</label>
-        </div>
+      <div class="followers" fxLayout="column" fxLayoutAlign="space-evenly center">
+        <label class="numbers">300K</label>
+        <label class="textinfo">Pratioci</label>
       </div>
+      <div class="following" fxLayout="column" fxLayoutAlign="space-evenly center">
+        <label class="numbers">889</label>
+        <label class="textinfo">Prati</label>
       </div>
+    </div>
+  </div>
 
-      <ion-slides pager="true" [options]="slideOpts">
-        <ion-slide class="content" fxLayout="column" fxLayoutAlign="center center" >
-            <ion-fab>
-              <ion-fab-button color="light">
-                <ion-icon name="add-outline"></ion-icon>
-              </ion-fab-button>
-              <ion-fab-list side="top">
-                <ion-fab-button color="light" (click)="openModal()">
-                  <ion-icon name="pencil-outline"></ion-icon>
-                </ion-fab-button>
-              </ion-fab-list>
-              <ion-fab-list side="end">
-                <ion-fab-button color="light">
-                  <ion-icon name="logo-instagram" (click) = "getURL()"></ion-icon>
-                </ion-fab-button>
-              </ion-fab-list>
-              <ion-fab-list side="bottom">
-                <ion-fab-button color="light">
-                  <ion-icon name="gift-outline" (click) = "getGiveawayInfo()"></ion-icon>
-                </ion-fab-button>
-              </ion-fab-list>
-              <ion-fab-list side="start">
-                <ion-fab-button color="light">
-                  <ion-icon name="timer-outline" (click) = "openModalHistory()"></ion-icon>
-                </ion-fab-button>
-              </ion-fab-list>
-            </ion-fab>
-        </ion-slide>
-        <ion-slide class="content" fxLayout="column" fxLayoutAlign="center center" >
-          <ion-fab>
-            <ion-fab-button color="light">
-              <ion-icon name="add-outline"></ion-icon>
-            </ion-fab-button>
-            <ion-fab-list side="bottom">
-              <ion-fab-button color="light">
-                <ion-icon name="log-out-outline"></ion-icon>
-              </ion-fab-button>
-            </ion-fab-list>
-            <ion-fab-list side="top">
-              <ion-fab-button color="light" (click) ="openModalWinner()">
-                <ion-icon name="trophy-outline"></ion-icon>
-              </ion-fab-button>
-            </ion-fab-list>
-          </ion-fab>
-        </ion-slide>
-      </ion-slides>
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide class="content" fxLayout="column" fxLayoutAlign="center center">
+      <ion-fab>
+        <ion-fab-button color="light">
+          <ion-icon name="add-outline"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-list side="top">
+          <ion-fab-button color="light" (click)="openModal()">
+            <ion-icon name="pencil-outline"></ion-icon>
+          </ion-fab-button>
+        </ion-fab-list>
+        <ion-fab-list side="end">
+          <ion-fab-button color="light">
+            <ion-icon name="logo-instagram" (click)="getURL()"></ion-icon>
+          </ion-fab-button>
+        </ion-fab-list>
+        <ion-fab-list side="bottom">
+          <ion-fab-button color="light">
+            <ion-icon name="gift-outline" (click)="getGiveawayInfo()"></ion-icon>
+          </ion-fab-button>
+        </ion-fab-list>
+        <ion-fab-list side="start">
+          <ion-fab-button color="light">
+            <ion-icon name="timer-outline" (click)="openModalHistory()"></ion-icon>
+          </ion-fab-button>
+        </ion-fab-list>
+      </ion-fab>
+    </ion-slide>
+    <ion-slide class="content" fxLayout="column" fxLayoutAlign="center center">
+      <ion-fab>
+        <ion-fab-button color="light">
+          <ion-icon name="add-outline"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-list side="bottom">
+          <ion-fab-button color="light" (click)="logout()">
+            <ion-icon name="log-out-outline"></ion-icon>
+          </ion-fab-button>
+        </ion-fab-list>
+        <ion-fab-list side="top">
+          <ion-fab-button color="light" (click)="openModalWinner()">
+            <ion-icon name="trophy-outline"></ion-icon>
+          </ion-fab-button>
+        </ion-fab-list>
+      </ion-fab>
+    </ion-slide>
+  </ion-slides>
 
 </ion-content>
