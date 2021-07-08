@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/member-ordering */
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import { Darivanje } from '../shared/models/darivanje.model';
 import { DarivanjeService } from '../shared/services/darivanje.service';
 
@@ -17,7 +18,7 @@ export class GiveawayPage implements OnInit {
   public konkretnoDarivanje: Darivanje = new Darivanje();
   public ucestvovanja: Array<any> = [];
 
-  constructor(private darivanjeService: DarivanjeService, private activeRoute: ActivatedRoute) {
+  constructor(private darivanjeService: DarivanjeService, private activeRoute: ActivatedRoute, private alertController: AlertController) {
     const stringId=window.location.pathname.substring(10);
     console.log(window.location.pathname);
     this.id=Number(stringId);
@@ -59,14 +60,16 @@ export class GiveawayPage implements OnInit {
     });
     console.log(this.signal);
   }
+
   enterGiveaway(){
    this.darivanjeService.PrijaviSe(this.id,1002).subscribe(
     (response) => {
-      console.log(response.toString());
+      console.log(response);
       this.signal = true;
     },
     (error) => {
       this.signal = true;
+      this.openAlert();
     }
     );
   }
@@ -75,4 +78,19 @@ export class GiveawayPage implements OnInit {
     this.darivanjeService.LikeGiveaway(this.id,1002);
   }
 
+
+  async openAlert() {
+    const alert = await this.alertController.create({
+      message: 'Već ste se prijavili za darivanje!',
+      buttons: [
+        {
+          text: 'U redu',
+          role: 'cancel',
+          cssClass: 'secondary'
+        }
+      ]
+    });
+
+    await alert.present();
+  }
 }
