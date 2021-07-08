@@ -9,19 +9,21 @@ import { DarivanjeService } from '../shared/services/darivanje.service';
   templateUrl: './create-giveaway.component.html',
   styleUrls: ['./create-giveaway.component.scss'],
 })
-export class CreateGiveawayComponent  {
-
-  public darivanje: Darivanje= null;
-  constructor(private modalCtrl: ModalController, private service: DarivanjeService) {
-    this.darivanje=new Darivanje();
-    this.darivanje.Nagrada= new Nagrada();
+export class CreateGiveawayComponent {
+  public darivanje: Darivanje = null;
+  constructor(
+    private modalCtrl: ModalController,
+    private service: DarivanjeService
+  ) {
+    this.darivanje = new Darivanje();
+    this.darivanje.Nagrada = new Nagrada();
   }
 
-  dismissModal(){
+  dismissModal() {
     this.modalCtrl.dismiss();
   }
-  kreiraj(){
-    this.darivanje.InfluenserId=2;
+  kreiraj() {
+    this.darivanje.InfluenserId = 2;
     this.service.kreiraj(this.darivanje);
     this.dismissModal();
   }
